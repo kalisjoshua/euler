@@ -6,9 +6,9 @@
   */
 
 // Better answer
-Array.apply(null, Array(1000))
+Array.apply(0, Array(1000))
   .reduce(function (a, _, i) {
-    return a + ((i%3===0) || (i%5===0) ? i : 0);
+    return a + (!(i % 3) || !(i % 5) ? i : 0);
   }, 0);
 
 // An answer
