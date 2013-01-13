@@ -1,0 +1,3 @@
+haskell/*.hi
+haskell/*.o
+*/test
