@@ -8,10 +8,8 @@
   not exceed four million, find the sum of the even-valued terms.
   -}
 
-fac n =
-  product [1..n]
-
-fib = 0 : 1 : zipWith (+) fib (tail fib)
+fib =
+  0 : 1 : zipWith (+) fib (tail fib)
 
 main =
-  print (fac 3)
+  print (sum [x | x <- takeWhile (<4000000) fib, mod x 2 == 0])
