@@ -3,10 +3,10 @@ HASKELL_RUN:=haskell/run
 NUM=$(filter-out $@,$(MAKECMDGOALS))
 
 clean:
-	rm haskell/*.hi
-	rm haskell/run
+	@rm haskell/*.hi
+	@rm haskell/run
 
-hs: clean
+hs:
 	@echo "Executing Project Euler #$(NUM) Solution\n"
 	ghc -o "$(HASKELL_RUN)" "haskell/euler$(NUM).hs"
 	./"$(HASKELL_RUN)"
