@@ -1,3 +1,4 @@
 haskell/*.hi
 haskell/*.o
+haskell/run
 */test
