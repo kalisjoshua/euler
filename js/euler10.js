@@ -5,35 +5,31 @@
  */
 
 var m,
-    p,
-    primes,
+    numbers = Array(2000000),
+    p = 2,
+    primes = [],
     seed,
     sum,
-    two_mil = 2000000;
 
-primes = Array(two_mil);
+    MAX = numbers.length;
 
-p = 2;
-while (p < two_mil) {
+while (p < MAX) {
 
-  primes[p] = true;
+  numbers[p] = true;
+
+  primes.push(p);
 
   m = 2;
-  while (m * p < two_mil) {
-    primes[m++ * p] = false;
+  while (m * p < MAX) {
+    numbers[m++ * p] = false;
   }
 
-  while (primes[++p] == false && p < two_mil);
+  while (p < MAX && false == numbers[++p]);
 }
 
-primes = primes
-  .map(function (item, indx) {
-    return !!item ? indx : false; 
-  })
-  .filter(function (item) {
-    return item;
+sum = primes
+  .reduce(function (acc, p) {
+    return acc + p;
   });
-
-eval("sum = " + primes.join("+"));
 
 console.log(sum);
