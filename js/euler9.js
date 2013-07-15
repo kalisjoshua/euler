@@ -9,9 +9,10 @@
   There exists exactly one Pythagorean triplet for
   which a + b + c = 1000. Find the product abc.
  */
-// 31875000
 
-var a = 200,
+var ANSWER = 31875000,
+
+    a = 200,
     b = a + 1,
     t = 0,
     lim = 1000;
@@ -29,4 +30,4 @@ while (a + b + c(a, b) !== lim) {
 // a*a + b*b = c^2 => c = Math.sqrt(a*a + b*b)
 // a + b + c = 1000 => a + b + Math.sqrt(a*a + b*b) = 1000
 
-console.log(t, a * b * c(a, b));
+console.log(ANSWER === a * b * c(a, b));

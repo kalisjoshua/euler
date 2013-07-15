@@ -4,9 +4,10 @@
 
   What is the 10 001st prime number?
  */
-// 104743
 
-var current;
+var ANSWER = 104743,
+
+    result;
 
 function isPrime (num) {
   if (!!~isPrime.cache.indexOf(num)) {
@@ -28,11 +29,11 @@ function isPrime (num) {
 }
 
 isPrime.cache = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41];
-current = 41;
+result = 41;
 
 while (isPrime.cache.length < 10001) {
-  current += 2;
-  isPrime(current);
+  result += 2;
+  isPrime(result);
 }
 
-console.log(current);
+console.log(ANSWER === result);

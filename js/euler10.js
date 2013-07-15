@@ -3,9 +3,10 @@
 
   Find the sum of all the primes below two million.
  */
-// 142913828922
 
-var m,
+var ANSWER = 142913828922,
+
+    m,
     numbers = Array(2000000),
     p = 2,
     seed,
@@ -30,4 +31,4 @@ sum = numbers
     return isPrime ? acc + num : acc;
   }, 0);
 
-console.log(sum);
+console.log(ANSWER === sum);

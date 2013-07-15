@@ -2,9 +2,10 @@
   Find the greatest product of five consecutive
   digits in the 1000-digit number.
  */
-// 40824
 
-var result;
+var ANSWER = 40824,
+
+    result;
 
 result = (
   '73167176531330624919225119674426574742355349194934' +
@@ -41,4 +42,4 @@ result = (
     return acc;
   }, [0, '']);
 
-console.log(result);
+console.log(ANSWER === result.shift());

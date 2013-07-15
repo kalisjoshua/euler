@@ -4,6 +4,8 @@
   What is the largest prime factor of the number 600851475143 ?
  */
 
+var ANSWER = 6857;
+
 function factors (num, i) {
   i = 2;
 
@@ -13,4 +15,4 @@ function factors (num, i) {
     .concat((num / i > 1) ? factors(num / i) : []);
 }
 
-console.log(factors(600851475143));
+console.log(ANSWER === factors(600851475143).pop());

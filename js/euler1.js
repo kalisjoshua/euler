@@ -5,18 +5,24 @@
   Find the sum of all the multiples of 3 or 5 below 1000.
   */
 
+var ANSWER = 233168,
+
+    result;
+
 // Better answer
-Array.apply(0, Array(1000))
+result = Array.apply(0, Array(1000))
   .reduce(function (a, _, i) {
     return a + (!(i % 3) || !(i % 5) ? i : 0);
   }, 0);
 
-// An answer
-(function (limit, sum) {
-  while (limit--) {
-    if (limit % 3 === 0 || limit % 5 === 0) {
-      sum+=limit;
-    }
-  }
-  return sum;
-}(1000, 0));
+// // An answer
+// (function (limit, sum) {
+//   while (limit--) {
+//     if (limit % 3 === 0 || limit % 5 === 0) {
+//       sum+=limit;
+//     }
+//   }
+//   return sum;
+// }(1000, 0));
+
+console.log(ANSWER === result);

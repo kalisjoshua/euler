@@ -5,9 +5,10 @@
   What is the smallest positive number that is evenly
   divisible by all of the numbers from 1 to 20?
  */
-// 232792560
 
-var counter = 2560 * 11 * 13 * 17 * 19;
+var ANSWER = 232792560,
+
+    counter = 2560 * 11 * 13 * 17 * 19;
 
 while (!(
   counter % 2 === 0 &&
@@ -23,7 +24,7 @@ while (!(
   counter % 12 === 0 &&
   counter % 13 === 0 &&
   // counter % 14 === 0 &&
-  counter % 15 === 0 &&
+  // counter % 15 === 0 &&
   // counter % 16 === 0 &&
   counter % 17 === 0 &&
   // counter % 18 === 0 &&
@@ -33,4 +34,4 @@ while (!(
   counter++;
 }
 
-console.log(232792560 === counter);
+console.log(ANSWER === counter);
