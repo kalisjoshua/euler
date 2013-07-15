@@ -1,22 +1,23 @@
 
 HASKELL_RUN:=haskell/run
-NUM=$(filter-out $@,$(MAKECMDGOALS))
-TEXT="- Project Euler Problem"
+MESSAGE="%s - Project Euler Problem %s\n\n"
+NUM=$(filter-out $@, $(MAKECMDGOALS))
 
 clean:
-	@rm haskell/*.hi
-	@rm haskell/run
+	@rm -f \
+		haskell/*.hi \
+		$(HASKELL_RUN)
 
-hs:
-	@printf "%s %s $(NUM)\n\n" "Haskell" $(TEXT)
+hs: clean
+	@printf $(MESSAGE) "Haskell" $(NUM)
 	ghc -o "$(HASKELL_RUN)" "haskell/euler$(NUM).hs"
 	./"$(HASKELL_RUN)"
 
 js:
-	@printf "%s %s $(NUM)\n\n" "JavaScript" $(TEXT)
+	@printf $(MESSAGE) "JavaScript" $(NUM)
 	@node "js/euler$(NUM).js"
 
 %:
 	@: # phony rule to quiet warning about no rule for 'number' argument
 
-.PHONY: hs js
+.PHONY: clean hs js %
