@@ -11,27 +11,22 @@
  */
 // 31875000
 
-var a = 3,
-    b = 4,
-
+var a = 200,
+    b = a + 1,
+    t = 0,
     lim = 1000;
 
 function c (a, b) {
   return Math.sqrt(a*a + b*b);
 }
 
-function product (a, b) {
-  return a * b * c(a, b);
-}
-
 while (a + b + c(a, b) !== lim) {
+  t++;
   if (b++ > lim) {
-    b = a++ + 1;
+    b = ++a + 1;
   }
 }
-// a + b + c = 1000
-// a^2 + b^2 = c^2
-// ...
-// a + b + Math.sqrt(a^2 + b^2) = 1000
+// a*a + b*b = c^2 => c = Math.sqrt(a*a + b*b)
+// a + b + c = 1000 => a + b + Math.sqrt(a*a + b*b) = 1000
 
-console.log(product(a, b));
+console.log(t, a * b * c(a, b));
