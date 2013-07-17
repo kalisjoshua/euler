@@ -110,11 +110,11 @@ numbers = [
   '53503534226472524250874054075591789781264330331690'
 ];
 
-numbers = numbers
+numbers = +numbers
   .reduce(function (sum, num) {
     return num.slice(0, 9) + sum;
   }, 0)
   .toString()
   .slice(0, 10);
 
-console.log(ANSWER == numbers);
+console.log(ANSWER === numbers);
