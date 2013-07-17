@@ -113,6 +113,8 @@ numbers = [
 numbers = numbers
   .reduce(function (sum, num) {
     return num.slice(0, 9) + sum;
-  }, 0);
+  }, 0)
+  .toString()
+  .slice(0, 10);
 
-console.log(ANSWER == numbers.toString().slice(0, 10));
+console.log(ANSWER == numbers);
