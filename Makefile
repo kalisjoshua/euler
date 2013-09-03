@@ -17,7 +17,11 @@ js:
 	@printf $(MESSAGE) "JavaScript" $(NUM)
 	@node "js/euler$(NUM).js"
 
+php:
+	@printf $(MESSAGE) "PHP" $(NUM)
+	@php -f "php/euler$(NUM).php"
+
 %:
 	@: # phony rule to quiet warning about no rule for 'number' argument
 
-.PHONY: clean hs js %
+.PHONY: clean hs js php %
