@@ -21,6 +21,10 @@ js:
 	@printf $(MESSAGE) "JavaScript" $(NUM)
 	@node "js/euler$(NUM).js"
 
+lua:
+	@printf $(MESSAGE) "Lua" $(NUM)
+	@lua "lua/euler$(NUM).lua"
+
 php:
 	@printf $(MESSAGE) "PHP" $(NUM)
 	@php -f "php/euler$(NUM).php"
@@ -32,4 +36,4 @@ py:
 %:
 	@: # phony rule to quiet warning about no rule for 'number' argument
 
-.PHONY: bash clean hs js php py %
+.PHONY: bash clean hs js lua php py %
