@@ -3,6 +3,10 @@ HASKELL_RUN:=haskell/run
 MESSAGE="%s - Project Euler Problem %s\n\n"
 NUM=$(filter-out $@, $(MAKECMDGOALS))
 
+bash:
+	@printf $(MESSAGE) "Bash" $(NUM)
+	@bash -f "bash/euler$(NUM).sh"
+
 clean:
 	@rm -f \
 		haskell/*.hi \
@@ -24,4 +28,4 @@ php:
 %:
 	@: # phony rule to quiet warning about no rule for 'number' argument
 
-.PHONY: clean hs js php %
+.PHONY: bash clean hs js php %
