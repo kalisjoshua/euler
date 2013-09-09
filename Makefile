@@ -25,7 +25,11 @@ php:
 	@printf $(MESSAGE) "PHP" $(NUM)
 	@php -f "php/euler$(NUM).php"
 
+py:
+	@printf $(MESSAGE) "Python" $(NUM)
+	@python "python/euler$(NUM).py"
+
 %:
 	@: # phony rule to quiet warning about no rule for 'number' argument
 
-.PHONY: bash clean hs js php %
+.PHONY: bash clean hs js php py %
