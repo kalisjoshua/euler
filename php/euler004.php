@@ -1,4 +1,7 @@
 <?php
+
+include "helper.php";
+
 function isPal($x) {
    $x = str_split($x);
    while (count($x) > 1) {
@@ -24,4 +27,4 @@ while ($done === false) {
    }
 }
 
-echo "{$pal}\n";
+result(906609, $pal);

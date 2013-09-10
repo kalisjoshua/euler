@@ -19,26 +19,7 @@
  * as we go.  Add a char count for "ounthousand" at the end.
  */
 
-function startTime()
-{
-	$mtime = microtime();
-	$mtime = explode(" ",$mtime);
-	$mtime = $mtime[1] + $mtime[0];
-	$starttime = $mtime;
-
-	return $starttime;
-}
-
-function exTime($starttime)
-{
-	$mtime = microtime();
-	$mtime = explode(" ",$mtime);
-	$mtime = $mtime[1] + $mtime[0];
-	$endtime = $mtime;
-	$totaltime = ($endtime - $starttime);
-
-	return $totaltime;
-}
+include "helper.php";
 
 function wordify($digit, $position)
 {
@@ -114,12 +95,10 @@ function countChars($term)
 	return $chars;
 }
 
-$start = startTime();
-
 $chars_total = 0;
 for ($i=1; $i <= 999; $i++) {
 	$chars_total += countChars(implode(' ',makeNumberWords($i)));
 }
 $chars_total += strlen("onethousand");
-echo "Total : " . $chars_total . "\n";
-echo exTime($start) . " seconds to execute.\n";
+
+result("?", $chars_total);

@@ -8,26 +8,7 @@
  * a sieve took 900+ seconds to execute.  This one takes 1.3 seconds.
  */
 
-function startTime()
-{
-	$mtime = microtime(); 
-	$mtime = explode(" ",$mtime); 
-	$mtime = $mtime[1] + $mtime[0]; 
-	$starttime = $mtime;
-
-	return $starttime;
-}
-
-function exTime($starttime)
-{
-	$mtime = microtime(); 
-	$mtime = explode(" ",$mtime); 
-	$mtime = $mtime[1] + $mtime[0]; 
-	$endtime = $mtime; 
-	$totaltime = ($endtime - $starttime); 
-
-	return $totaltime; 
-}
+include "helper.php";
 
 function eratosthenes_sieve(&$sieve, $n)
 {
@@ -55,9 +36,7 @@ function eratosthenes_sieve(&$sieve, $n)
 	return $total;
 }
 
-$start = startTime();
 $n = 2000000;
 $sieve = array_fill(0, $n, 0);
-echo "[.......................25%......................50%......................75%....................100%]\n ";
-echo "Sum is " . eratosthenes_sieve($sieve, $n) . "\n";
-echo exTime($start) . " seconds to execute.\n";
+
+result(142913828922, eratosthenes_sieve($sieve, $n));

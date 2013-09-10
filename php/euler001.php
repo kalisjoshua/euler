@@ -8,6 +8,8 @@
  * subtract.
  */
 
+include "helper.php";
+
 function sumMultiplesOf($x)
 {
    $sum = $num = 0;
@@ -21,4 +23,6 @@ function sumMultiplesOf($x)
    return $sum;
 }
 
-echo sumMultiplesOf(3) + sumMultiplesOf(5) - sumMultiplesOf(15);
+$result = sumMultiplesOf(3) + sumMultiplesOf(5) - sumMultiplesOf(15);
+
+result(233168, $result);

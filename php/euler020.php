@@ -7,31 +7,10 @@
  *
  * Find the sum of the digits in the number 100!
  *
- * Solution: 
+ * Solution:
  */
 
-function startTime()
-{
-	$mtime = microtime();
-	$mtime = explode(" ",$mtime);
-	$mtime = $mtime[1] + $mtime[0];
-	$starttime = $mtime;
-
-	return $starttime;
-}
-
-function exTime($starttime)
-{
-	$mtime = microtime();
-	$mtime = explode(" ",$mtime);
-	$mtime = $mtime[1] + $mtime[0];
-	$endtime = $mtime;
-	$totaltime = ($endtime - $starttime);
-
-	return $totaltime;
-}
-
-$start = startTime();
+include "helper.php";
 
 function factorial($num)
 {
@@ -45,12 +24,11 @@ function factorial($num)
 }
 
 $fact = factorial(100);
-echo $fact . "\n";
+// echo $fact . "\n";
 $fact = str_split($fact);
 $total = 0;
 foreach ($fact as $digit) {
 	$total += $digit;
 }
-echo "Total : " . $total . "\n";
 
-echo exTime($start) . " seconds to execute.\n";
+result("?", $total);

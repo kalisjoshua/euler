@@ -16,28 +16,7 @@
  * loop through each month of each year, dividing by 7 and checking if it is a Sunday.
  */
 
-function startTime()
-{
-	$mtime = microtime();
-	$mtime = explode(" ",$mtime);
-	$mtime = $mtime[1] + $mtime[0];
-	$starttime = $mtime;
-
-	return $starttime;
-}
-
-function exTime($starttime)
-{
-	$mtime = microtime();
-	$mtime = explode(" ",$mtime);
-	$mtime = $mtime[1] + $mtime[0];
-	$endtime = $mtime;
-	$totaltime = ($endtime - $starttime);
-
-	return $totaltime;
-}
-
-$start = startTime();
+include "helper.php";
 
 $days = array('su', 'mo', 'tu', 'we', 'th', 'fr', 'sa');
 $sundays = 0;
@@ -53,9 +32,7 @@ for ($i=1901; $i <= 2000 ; $i++) {
 		}
 		$day_num += $d;
 	}
-echo "\n";
 	// $sundays += countSundays($i, $leap);
 }
-echo "Total : " . $sundays . "\n";
 
-echo exTime($start) . " seconds to execute.\n";
+result("?", $sundays);

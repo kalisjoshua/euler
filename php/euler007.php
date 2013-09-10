@@ -8,30 +8,11 @@
  * If prime, count it, either way, increment the test number
  */
 
-function startTime()
-{
-	$mtime = microtime(); 
-	$mtime = explode(" ",$mtime); 
-	$mtime = $mtime[1] + $mtime[0]; 
-	$starttime = $mtime;
-
-	return $starttime;
-}
-
-function exTime($starttime)
-{
-	$mtime = microtime(); 
-	$mtime = explode(" ",$mtime); 
-	$mtime = $mtime[1] + $mtime[0]; 
-	$endtime = $mtime; 
-	$totaltime = ($endtime - $starttime); 
-
-	return $totaltime; 
-}
+include "helper.php";
 
 function isPrime($x)
 {
-	for ($i=2; $i<$x; $i++) { 
+	for ($i=2; $i<$x; $i++) {
 		if ($x%$i==0) {
 #			echo "not prime\n";
 			return false;
@@ -43,12 +24,13 @@ function isPrime($x)
 
 $count = 1;
 $num = 3;
-$start = startTime();
+
 while ($count < 10001) {
 	if (isPrime($num)) {
 		$count++;
-		echo $count . ": " . $num . " is prime. (" . exTime($start) . " seconds)\n";
-		$start = startTime();
 	}
+
 	$num++;
 }
+
+result(104743, $num - 1);

@@ -1,19 +1,19 @@
 <?php
 /**
  * Problem: The following iterative sequence is defined for the set of positive integers:
- * 
+ *
  * n → n/2 (n is even)
  * n → 3n + 1 (n is odd)
- * 
+ *
  * Using the rule above and starting with 13, we generate the following sequence:
- * 
+ *
  * 13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1
  * It can be seen that this sequence (starting at 13 and finishing at 1) contains
  * 10 terms. Although it has not been proved yet (Collatz Problem), it is thought
  * that all starting numbers finish at 1.
- * 
+ *
  * Which starting number, under one million, produces the longest chain?
- * 
+ *
  * Solution: Starting with 2 and working up towards 1,000,000, create each chain,
  * stopping where a previous chain has already been done.  So...  If we've already
  * created chains starting with 2 and 8, the array looks like (split links by "."):
@@ -26,26 +26,7 @@
  * We don't stop until we try all 1,000,000 numbers.
  */
 
-function startTime()
-{
-	$mtime = microtime(); 
-	$mtime = explode(" ",$mtime); 
-	$mtime = $mtime[1] + $mtime[0]; 
-	$starttime = $mtime;
-
-	return $starttime;
-}
-
-function exTime($starttime)
-{
-	$mtime = microtime(); 
-	$mtime = explode(" ",$mtime); 
-	$mtime = $mtime[1] + $mtime[0]; 
-	$endtime = $mtime; 
-	$totaltime = ($endtime - $starttime); 
-
-	return $totaltime; 
-}
+include "helper.php";
 
 function collatz($x)
 {
@@ -75,15 +56,13 @@ function genChain($num)
 	}
 }
 
-$start = startTime();
-
 $longest = 0;
 $length = 0;
 $chains = array(1 => "1");
 
-for ($i=2; $i <= 1000000; $i++) { 
+for ($i=2; $i <= 1000000; $i++) {
 	genChain($i);
 }
-echo "The longest chain is " . $longest . " with " . (($length/2)+2) . " links.\n";
+// echo "The longest chain is " . $longest . " with " . (($length/2)+2) . " links.\n";
 
-echo exTime($start) . " seconds to execute.\n";
+result(837799, $longest);

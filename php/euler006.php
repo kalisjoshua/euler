@@ -1,5 +1,9 @@
 <?php
-function sumOfSquares($max) {
+
+include "helper.php";
+
+function sumOfSquares($max)
+{
    $x = 1;
    $sum = 0;
    while ($x <= $max) {
@@ -8,7 +12,9 @@ function sumOfSquares($max) {
    }
    return $sum;
 }
-function squareOfSums($max) {
+
+function squareOfSums($max)
+{
    $x = 1;
    $sum = 0;
    while ($x <= $max) {
@@ -17,5 +23,7 @@ function squareOfSums($max) {
    }
    return $sum * $sum;
 }
+
 $num = 100;
-echo squareOfSums($num) - sumOfSquares($num) . "\n";
+
+result(25164150, squareOfSums($num) - sumOfSquares($num));

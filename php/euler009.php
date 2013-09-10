@@ -11,6 +11,8 @@
  * 1,000 is found, multiply for the product.
  */
 
+include "helper.php";
+
 function isPyTrip($a, $b, $c)
 {
 	if (($a*$a)+($b*$b)==($c*$c)) {
@@ -28,8 +30,7 @@ $found = false;
 while ($found === false) {
 	if (isPyTrip($f1, $f2, $p)) {
 		if ($f1 + $f2 + $p == 1000) {
-			echo $f1 . " * " . $f2 . " * " . $p . " = " . ($f1*$f2*$p) . "\n";
-			$found = true;
+			$found = $f1*$f2*$p;
 		}
 	}
 
@@ -45,3 +46,5 @@ while ($found === false) {
 		$p = $f2 + 1;
 	}
 }
+
+result(31875000, $found);

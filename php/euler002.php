@@ -14,17 +14,19 @@
  * So the sum would be 2 + 8 + 34 = 44
  */
 
+include "helper.php";
+
 $total = 2;       // The first loop will miss this so I'll add it here
 $max   = 4000000; // Highest allowed Fibonacci number to add
 
-function fib($x, $y, $max, $total)
+function fib($x, $y, $max, &$total)
 {
 	$fib = $x + $y;
 	if ($fib <= $max) {
 		if ($fib % 2 == 0) {
 			$total += $fib;
 		}
-		$fib = fib($y, $fib, $max, &$total);
+		$fib = fib($y, $fib, $max, $total);
 
 		return $fib;
 	} else {
@@ -32,7 +34,6 @@ function fib($x, $y, $max, $total)
 	}
 }
 
+fib(1, 2, $max, $total);
 
-fib(1, 2, $max, &$total);
-
-echo $total . "\n";
+result(4613732, $total);

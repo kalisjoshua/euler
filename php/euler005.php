@@ -1,4 +1,7 @@
 <?php
+
+include "helper.php";
+
 function hasRemainder($num) {
    $x = 20;
    while ($x > 0) {
@@ -7,8 +10,10 @@ function hasRemainder($num) {
    }
    return false;
 }
+
 $num = 20;
 do {
    $num += 20;
 } while (hasRemainder($num));
-echo ($num) . "\n";
+
+result(232792560, $num);

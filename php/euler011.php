@@ -24,32 +24,13 @@
  * 20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16
  * 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
  * 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
- * 
+ *
  * Solution: Use a Eratosthenes sieve to determine primes from
  * 2 to 2,000,000, adding as we go.  The first attempt without
  * a sieve took 900+ seconds to execute.  This one takes 1.3 seconds.
  */
 
-function startTime()
-{
-	$mtime = microtime(); 
-	$mtime = explode(" ",$mtime); 
-	$mtime = $mtime[1] + $mtime[0]; 
-	$starttime = $mtime;
-
-	return $starttime;
-}
-
-function exTime($starttime)
-{
-	$mtime = microtime(); 
-	$mtime = explode(" ",$mtime); 
-	$mtime = $mtime[1] + $mtime[0]; 
-	$endtime = $mtime; 
-	$totaltime = ($endtime - $starttime); 
-
-	return $totaltime; 
-}
+include "helper.php";
 
 function largestProduct($grid, $i, $j, &$products)
 {
@@ -74,7 +55,7 @@ function largestProduct($grid, $i, $j, &$products)
 		$products[] = $diag;
 		$largest = ($diag > $largest) ? $diag : $largest;
 	}
-	
+
 	// down
 	if (isset($grid[$i+3][$j])) {
 		$down = $grid[$i][$j] * $grid[$i+1][$j] * $grid[$i+2][$j] * $grid[$i+3][$j];
@@ -94,8 +75,6 @@ function storeGrid($raw)
 
 	return $grid;
 }
-
-$start = startTime();
 
 $grid = <<<GRID
 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
@@ -121,10 +100,7 @@ $grid = <<<GRID
 GRID;
 
 $grid = storeGrid($grid);
-echo "\n";
 
-echo "Finding the products\n";
-echo "[.......................25%......................50%......................75%....................100%]\n ";
 $largest = 0;
 $products = array();
 for ($i=0; $i < 20; $i++) {
@@ -134,8 +110,6 @@ for ($i=0; $i < 20; $i++) {
 			$largest = $current;
 		}
 	}
-	echo ".....";
 }
-echo "\n";
-echo "Largest product is " . $largest . "\n";
-echo exTime($start) . " seconds to execute.\n";
+
+result(70600674, $largest);
