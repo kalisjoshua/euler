@@ -5,12 +5,12 @@
   Find the largest palindrome made from the product of two 3-digit numbers.
  */
 
-var ANSWER = 906609,
+var helper = require('./helper.js'),
 
     one = 999,
     two = 999,
     level,
-    product = one * two;
+    result = one * two;
 
 function isPal (num) {
   num = num.toString();
@@ -21,12 +21,12 @@ function isPal (num) {
     .join("");
 }
 
-while (!isPal(product)) {
+while (!isPal(result)) {
   level = 1;
-  while (!isPal(product) && level < 10) {
-    product = one * (two - level++);
+  while (!isPal(result) && level < 10) {
+    result = one * (two - level++);
   }
   one--;
 }
 
-console.log(ANSWER === product);
+helper(906609, result);

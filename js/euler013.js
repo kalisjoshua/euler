@@ -3,9 +3,10 @@
   of the following one-hundred 50-digit numbers.
  */
 
-var ANSWER = 5350353422,
+var helper = require('./helper.js'),
 
-    numbers;
+    numbers,
+    result;
 
 numbers = [
   '37107287533902102798797998220837590246510135740250',
@@ -110,11 +111,11 @@ numbers = [
   '53503534226472524250874054075591789781264330331690'
 ];
 
-numbers = +numbers
+result = +numbers
   .reduce(function (sum, num) {
     return num.slice(0, 9) + sum;
   }, 0)
   .toString()
   .slice(0, 10);
 
-console.log(ANSWER === numbers);
+helper(5350353422, result);

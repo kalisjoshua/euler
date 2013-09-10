@@ -3,7 +3,7 @@
   digits in the 1000-digit number.
  */
 
-var ANSWER = 40824,
+var helper = require('./helper.js'),
 
     result;
 
@@ -42,4 +42,4 @@ result = (
     return acc;
   }, [0, '']);
 
-console.log(ANSWER === result.shift());
+helper(40824, result.shift());

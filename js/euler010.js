@@ -4,13 +4,13 @@
   Find the sum of all the primes below two million.
  */
 
-var ANSWER = 142913828922,
+var helper = require('./helper.js'),
 
     m,
     numbers = Array(2000000),
     p = 2,
     seed,
-    sum,
+    result,
 
     MAX = numbers.length;
 
@@ -26,9 +26,9 @@ while (p < MAX) {
   while (p < MAX && false == numbers[++p]);
 }
 
-sum = numbers
+result = numbers
   .reduce(function (acc, isPrime, num) {
     return isPrime ? acc + num : acc;
   }, 0);
 
-console.log(ANSWER === sum);
+helper(142913828922, result);

@@ -22,12 +22,12 @@
   to have over five hundred divisors?
  */
 
-var ANSWER = 76576500,
+var helper = require('./helper.js'),
 
     div = 0,
     max = 0,
     num = 1,
-    tri = 0;
+    result = 0;
 
 function divisorsCount (num) {
   var limit = ~~Math.sqrt(num),
@@ -43,12 +43,12 @@ function divisorsCount (num) {
 }
 
 do {
-  tri += num;
-  div = divisorsCount(tri);
+  result += num;
+  div = divisorsCount(result);
 
   if (max < div) {
     max = div;
   }
 } while (max < 500 && num++);
 
-console.log(ANSWER === tri);
+helper(76576500, result);

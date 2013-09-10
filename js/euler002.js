@@ -8,15 +8,14 @@
   not exceed four million, find the sum of the even-valued terms.
   */
 
-var ANSWER = 4613732,
-
+var helper = require('./helper.js'),
     fib = [0, 1],
-    sum = 0;
+    result = 0;
 
 while (fib[1] < 4000000) {
   fib.push(fib[0] + fib[1]);
   fib.shift();
-  sum += fib[0] % 2 === 0 ? fib[0] : 0;
+  result += fib[0] % 2 === 0 ? fib[0] : 0;
 }
 
-console.log(ANSWER === sum);
+helper(4613732, result);

@@ -18,12 +18,16 @@ var helper = require('./helper.js'),
 
     result;
 
-result = Array.apply(null, Array(101))
-  .reduce(function (a, _, i) {
-    return [a[0] + i * i, a[1] + i];
-  }, [0,0])
-  .reduce(function (a, b) {
-    return Math.pow(b, 2) - a;
-  });
+result = Math
+  .pow(Array
+    .apply(null, Array(101))
+    .reduce(function (a, _, i) {
+      return a + i;
+    }, 0), 2) -
+    Array
+      .apply(null, Array(101))
+      .reduce(function (a, _, i) {
+        return a + i * i;
+      }, 0);
 
 helper(25164150, result);

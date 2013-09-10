@@ -10,12 +10,13 @@
   which a + b + c = 1000. Find the product abc.
  */
 
-var ANSWER = 31875000,
+var helper = require('./helper.js'),
 
     a = 200,
     b = a + 1,
     t = 0,
-    lim = 1000;
+    lim = 1000,
+    result;
 
 function c (a, b) {
   return Math.sqrt(a*a + b*b);
@@ -30,4 +31,6 @@ while (a + b + c(a, b) !== lim) {
 // a*a + b*b = c^2 => c = Math.sqrt(a*a + b*b)
 // a + b + c = 1000 => a + b + Math.sqrt(a*a + b*b) = 1000
 
-console.log(ANSWER === a * b * c(a, b));
+result = a * b * c(a, b);
+
+helper(31875000, result);

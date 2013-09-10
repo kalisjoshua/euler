@@ -5,7 +5,7 @@
   What is the 10 001st prime number?
  */
 
-var ANSWER = 104743,
+var helper = require('./helper.js'),
 
     result;
 
@@ -36,4 +36,4 @@ while (isPrime.cache.length < 10001) {
   isPrime(result);
 }
 
-console.log(ANSWER === result);
+helper(104743, result);

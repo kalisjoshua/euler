@@ -19,7 +19,7 @@
   NOTE: Once the chain starts the terms are allowed to go above one million.
  */
 
-var ANSWER = 837799,
+var helper = require('./helper.js'),
 
     num = 1000000,
     result = [0,0],
@@ -39,4 +39,4 @@ while (--num) {
   }
 }
 
-console.log(ANSWER === result[0]);
+helper(837799, result[0]);

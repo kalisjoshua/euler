@@ -8,7 +8,7 @@
   direction (up, down, left, right, or diagonally) in the 20×20 grid?
  */
 
-var ANSWER = 70600674,
+var helper = require('./helper.js'),
 
     acc = 0,
     dimension = 20,
@@ -115,4 +115,4 @@ while (y < dimension) {
   }
 }
 
-console.log(ANSWER === acc);
+helper(70600674, acc);

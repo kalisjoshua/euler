@@ -6,12 +6,14 @@
   */
 
 var helper = require('./helper.js'),
-    result;
+    limit = 1000,
+    result = 0;
 
-// Better answer
-result = Array.apply(0, Array(1000))
-  .reduce(function (a, _, i) {
-    return a + (!(i % 3) || !(i % 5) ? i : 0);
-  }, 0);
+// An answer
+while (limit--) {
+  if (limit % 3 === 0 || limit % 5 === 0) {
+    result += limit;
+  }
+}
 
 helper(233168, result);

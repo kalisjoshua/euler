@@ -6,7 +6,7 @@
   divisible by all of the numbers from 1 to 20?
  */
 
-var ANSWER = 232792560,
+var helper = require('./helper.js'),
 
     counter = 2560 * 11 * 13 * 17 * 19;
 
@@ -34,4 +34,4 @@ while (!(
   counter++;
 }
 
-console.log(ANSWER === counter);
+helper(232792560, counter);
