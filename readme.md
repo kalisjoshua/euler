@@ -21,5 +21,6 @@ If you are adding a new language to the project please make sure that you also i
 # Contributors
 
   * [Joe Colburn](https://github.com/joetech)
+  * [John Fair](https://github.com/johnbfair)
   * [Karl Herrick](https://github.com/kherrick)
   * [Joshua Kalis](https://github.com/kalisjoshua)
