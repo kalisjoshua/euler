@@ -15,6 +15,7 @@ If you are adding a new language to the project please make sure that you also i
 # TODO
 
   * Performance profiling - compare performance between and within languages
+  * Standardize output of all languages
   * Keep "TODO" up-to-date
   * Learn stuff.
 
