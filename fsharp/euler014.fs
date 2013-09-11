@@ -10,21 +10,21 @@ module euler014 =
 
     let calculate_sequence n =
         let rec collatz_sequence n (partial:int64 list) (cache: IDictionary<_, _ list>) =
-            if cache.ContainsKey(n) then
-                let result = partial @ cache.[n]
+            match cache.TryGetValue n with
+            | true, r ->
+                let result = partial @ r
                 let sequence_starter = List.head result
                 if not(cache.ContainsKey(sequence_starter)) then
                     cache.Add(sequence_starter, result) |> ignore
                 result
-            else
-                match n with
-                | 1L ->
-                    let result = partial @ [1L]
-                    let sequence_starter = List.head result
-                    cache.Add(sequence_starter, result) |> ignore
-                    result
-                | Odd x -> collatz_sequence x (partial @ [n]) cache
-                | Even x -> collatz_sequence x (partial @ [n]) cache
+            | _ ->  match n with
+                    | 1L ->
+                        let result = partial @ [1L]
+                        let sequence_starter = List.head result
+                        cache.Add(sequence_starter, result) |> ignore
+                        result
+                    | Odd x -> collatz_sequence x (partial @ [n]) cache
+                    | Even x -> collatz_sequence x (partial @ [n]) cache
 
         collatz_sequence n [] sequence_cache
      
@@ -32,8 +32,8 @@ module euler014 =
         [1L..max] 
         |> List.map (fun x -> (x,calculate_sequence x |> List.length)) 
         |> List.maxBy (fun (_,x) -> x)
+        |> fst
 
     let answer = 837799
 
-    let result =
-        1000000L |> max_sequence_lengths |> fst
+    let result = 1000000L |> max_sequence_lengths
