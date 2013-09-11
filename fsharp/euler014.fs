@@ -8,24 +8,24 @@ module euler014 =
 
     let sequence_cache = new Dictionary<int64, int64 list>()
 
-    let rec collatz_sequence n (partial:int64 list) (cache: IDictionary<_, _ list>) =
-        if cache.ContainsKey(n) then
-            let result = partial @ cache.[n]
-            let sequence_starter = List.head result
-            if not(cache.ContainsKey(sequence_starter)) then
-                cache.Add(sequence_starter, result) |> ignore
-            result
-        else
-            match n with
-            | 1L ->
-                let result = partial @ [1L]
-                let sequence_starter = List.head result
-                cache.Add(sequence_starter, result) |> ignore
-                result
-            | Odd x -> collatz_sequence x (partial @ [n]) cache
-            | Even x -> collatz_sequence x (partial @ [n]) cache
-
     let calculate_sequence n =
+        let rec collatz_sequence n (partial:int64 list) (cache: IDictionary<_, _ list>) =
+            if cache.ContainsKey(n) then
+                let result = partial @ cache.[n]
+                let sequence_starter = List.head result
+                if not(cache.ContainsKey(sequence_starter)) then
+                    cache.Add(sequence_starter, result) |> ignore
+                result
+            else
+                match n with
+                | 1L ->
+                    let result = partial @ [1L]
+                    let sequence_starter = List.head result
+                    cache.Add(sequence_starter, result) |> ignore
+                    result
+                | Odd x -> collatz_sequence x (partial @ [n]) cache
+                | Even x -> collatz_sequence x (partial @ [n]) cache
+
         collatz_sequence n [] sequence_cache
      
     let max_sequence_lengths (max:int64) =
