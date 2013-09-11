@@ -1,8 +1,7 @@
 
-local Module = {}
 local start
 
-function Module.helper (ANSWER, attempt)
+function helper (ANSWER, attempt)
   if ANSWER == attempt then
     print('Success!')
     print(string.format('Total time, %f miliseconds.', (os.clock() - start) * 1000))
@@ -14,4 +13,4 @@ end
 
 start = os.clock()
 
-return Module
+return helper

@@ -5,7 +5,7 @@
   Find the sum of all the multiples of 3 or 5 below 1000.
   ]]
 
-local helper = require("lua/helper").helper
+local helper = require("lua/helper")
 local counter = 0
 local limit = 1000
 local sum = 0

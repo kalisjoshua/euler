@@ -4,7 +4,7 @@
   What is the largest prime factor of the number 600851475143 ?
   ]]
 
-local helper = require("lua/helper").helper
+local helper = require("lua/helper")
 
 function factors (num)
   local i = 2

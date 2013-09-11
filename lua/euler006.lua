@@ -14,7 +14,7 @@
   one hundred natural numbers and the square of the sum.
   ]]
 
-local helper = require('lua/helper').helper
+local helper = require('lua/helper')
 local limit = 100
 local result = {0, 0}
 

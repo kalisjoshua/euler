@@ -5,7 +5,7 @@
   Find the largest palindrome made from the product of two 3-digit numbers.
   ]]
 
-local helper = require("lua/helper").helper
+local helper = require("lua/helper")
 local level
 
 local one = 999

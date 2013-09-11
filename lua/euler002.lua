@@ -8,7 +8,7 @@
   not exceed four million, find the sum of the even-valued terms.
   ]]
 
-local helper = require("lua/helper").helper
+local helper = require("lua/helper")
 local fibA = 0
 local fibB = 1
 local fibX = 0

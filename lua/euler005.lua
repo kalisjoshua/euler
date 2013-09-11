@@ -6,7 +6,7 @@
   divisible by all of the numbers from 1 to 20?
   ]]
 
-local helper = require("lua/helper").helper
+local helper = require("lua/helper")
 
 local counter = 2560 * 11 * 13 * 17 * 19;
 
