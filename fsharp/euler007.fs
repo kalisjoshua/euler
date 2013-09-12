@@ -3,9 +3,9 @@
     open System 
 
     let findFactorsOf value =
-        let upper = (float value) |> Math.Sqrt |> uint64
-        [2UL..upper]
-        |> Seq.filter (fun n -> value % n = 0UL)
+        let upper = (float value) |> Math.Sqrt |> int
+        [2..upper]
+        |> Seq.filter (fun n -> value % n = 0)
 
     let isPrime value = findFactorsOf value |> Seq.length = 0
 
@@ -13,5 +13,5 @@
 
     let result =
         Seq.unfold(fun x -> Some(x, x+1)) 2
-        |> Seq.filter (fun x -> isPrime (uint64 x))
+        |> Seq.filter isPrime
         |> Seq.nth 10000
