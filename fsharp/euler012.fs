@@ -4,18 +4,14 @@ module euler012 =
     
     let all_factors n =
         let rec all_factors_rec n i fac =
-            if n % i = 0 then
-                let y = n / i
-                if(i < y) then
-                    all_factors_rec n (i + 1) (i::y::fac)
-                elif (i = y) then
-                    i::fac
-                else
-                    fac
-            elif i > int (sqrt (float n)) then
-                fac
-            else
-                all_factors_rec n (i + 1) fac
+            match n with
+            | x when x % i = 0 -> 
+                match x / i with
+                | y when y > i -> all_factors_rec n (i + 1) (i::y::fac)
+                | y when y = i -> i::fac
+                | _ -> fac
+            | x when int (sqrt (float x)) < i -> fac
+            | _ -> all_factors_rec n (i + 1) fac
         all_factors_rec n 1 []
     
     let triangles =
@@ -27,7 +23,9 @@ module euler012 =
         |> Seq.map all_factors 
         |> Seq.tryFindIndex (fun x -> List.length x >= m)
         
-    let getResult = function Some x ->  triangles |> Seq.skip x |> Seq.head | None -> failwith "Oooops"
+    let getResult = function 
+            Some x -> triangles |> Seq.skip x |> Seq.head 
+            | None -> failwith "Oooops"
     
     let answer = 76576500
     
