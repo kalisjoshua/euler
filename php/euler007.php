@@ -11,14 +11,26 @@
 
 include "helper.php";
 
-function isPrime($x, $primes)
+function isPrime($num, $primes)
 {
-	for ($i=0; $i<count($primes); $i++) {
-		if ($x%$primes[$i]==0) {
-			return false;
-		}
-	}
-	return true;
+    if ($num == 1) {
+        return false;
+    }
+
+    if ($num == 2) {
+        return true;
+    }
+
+    if ($num % 2 == 0) {
+        return false;
+    }
+
+    for ($i = 3; $i <= ceil(sqrt($num)); $i = $i + 2) {
+        if($num % $i == 0)
+            return false;
+    }
+
+    return true;
 }
 
 function sieve($num, $primes)
