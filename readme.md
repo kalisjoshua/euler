@@ -46,3 +46,4 @@ If you are adding a new language to the project please make sure that you check 
   * [John Fair](https://github.com/johnbfair)
   * [Karl Herrick](https://github.com/kherrick)
   * [Joshua Kalis](https://github.com/kalisjoshua)
+  * [Tyler Smith](https://github.com/tyane)
