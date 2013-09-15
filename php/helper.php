@@ -19,7 +19,7 @@ function result($ANSWER, $attempt)
   if($ANSWER == $attempt)
   {
     echo "Success!\n";
-    echo "Total time, $total_time seconds.\n";
+    echo "Total time, " . round($total_time, 4) . " seconds.\n";
   }
   else
   {
