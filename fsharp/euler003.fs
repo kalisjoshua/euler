@@ -14,6 +14,4 @@
         else
             factors
 
-    let answer = 6857
-
     let result = (findFactorsRecursive 600851475143L 2L []) |> List.max

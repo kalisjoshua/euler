@@ -28,8 +28,13 @@ module euler011 =
     let diagR      (arr: 'a[][]) = [|0..(size-1)|] |> Array.map (fun x-> arr.[x].[x]) |> Array.fold (*) 1L
     let diagL      (arr: 'a[][]) = [|0..(size-1)|] |> Array.map (fun x-> arr.[x].[(size-1-x)]) |> Array.fold (*) 1L
     let multBox    (arr: 'a[][]) =  [| multAcross arr; multDown arr; diagR arr; diagL arr; |] |> Array.max
-    let boxIt      (arr: 'a[][]) st = [|0..((Array.length input)-size)|] |> Array.map (fun x-> input.[st..st+3] |> Array.map ( fun y-> y.[x..x+3]))
+    let boxIt      (arr: 'a[][]) st = 
+        [|0..((Array.length input)-size)|] 
+        |> Array.map (fun x-> input.[st..st+3] |> Array.map ( fun y-> y.[x..x+3]))
 
-    let answer = 70600674L
-
-    let result = [|0..((Array.length input)-size)|] |> Array.map (fun x-> boxIt input x) |> Array.map (fun x-> x|> Array.map (fun y-> multBox y)) |> Array.map (fun x-> x|> Array.max) |> Array.max
+    let result = 
+        [|0..((Array.length input)-size)|] 
+        |> Array.map (fun x-> boxIt input x) 
+        |> Array.map (fun x-> x |> Array.map (fun y-> multBox y)) 
+        |> Array.map (fun x-> x |> Array.max) 
+        |> Array.max

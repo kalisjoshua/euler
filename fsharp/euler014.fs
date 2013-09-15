@@ -34,6 +34,4 @@ module euler014 =
         |> List.maxBy (fun (_,x) -> x)
         |> fst
 
-    let answer = 837799
-
     let result = 1000000L |> max_sequence_lengths

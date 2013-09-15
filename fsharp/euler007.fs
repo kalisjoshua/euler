@@ -9,8 +9,6 @@
 
     let isPrime value = findFactorsOf value |> Seq.length = 0
 
-    let answer = 104743
-
     let result =
         Seq.unfold(fun x -> Some(x, x+1)) 2
         |> Seq.filter isPrime

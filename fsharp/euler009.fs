@@ -1,7 +1,5 @@
 ﻿module euler009 = 
 
-    let answer = 31875000
-
     let result = 
         // I had to borrow part of this solution because I was making it WAY more complicated on myself (think map/filter mayhem)
         let isTriplet (values:int*int*int) =

@@ -1,7 +1,5 @@
 ﻿module euler006 = 
 
-    let answer = 25164150
-
     let result = 
         let nums = [1..100]
 

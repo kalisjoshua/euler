@@ -1,7 +1,5 @@
 ﻿module euler005 = 
 
-    let answer = 232792560
-
     let result = 
         let divisors = [ 1..20 ]
 

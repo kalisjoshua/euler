@@ -27,6 +27,4 @@ module euler012 =
             Some x -> triangles |> Seq.skip x |> Seq.head 
             | None -> failwith "Oooops"
     
-    let answer = 76576500
-    
     let result = findIndex 500 |> getResult 

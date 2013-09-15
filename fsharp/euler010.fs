@@ -9,8 +9,6 @@
 
     let isPrime value = findFactorsOf value |> Seq.length = 0
 
-    let answer = 142913828922UL
-
     let result = 
         // This solution takes ~4mins to execute
         let genSeq = seq { for i in 2UL..2000000UL do if (isPrime i) then yield i }
