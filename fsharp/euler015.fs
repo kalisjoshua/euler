@@ -1,6 +1,6 @@
 module euler015 =
-    open System.Numerics
     let partialfactorial l u = [l..u] |> List.reduce(*)
-    let factorial (n:bigint) = partialfactorial (bigint 1) n
-    let combinator n k = (partialfactorial (k+(bigint 1)) n) / (factorial k)
-    let result = combinator (bigint 40) (bigint 20)
+    let factorial (n:bigint) = partialfactorial 1I n
+    let combinator n k = (partialfactorial (k+1I) n) / (factorial k)
+    
+    let result = combinator 40I 20I
