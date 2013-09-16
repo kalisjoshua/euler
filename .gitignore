@@ -1,4 +1,5 @@
 haskell/*.hi
 haskell/*.o
 haskell/run
+python/*.pyc
 */test
