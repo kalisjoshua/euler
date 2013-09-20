@@ -7,24 +7,26 @@
 
 local helper = require('lua/helper')
 
-local counter = 1
-local primes = {2}
+local count = 1
+local number = 2
+local prime
 
-local function isMultiple (mod, fun)
+local function newSieve (mod, fn)
   return function (num)
-    return num % mod == 0 or fun(num)
+    return fn(num) and num % mod > 0
   end
 end
 
-local sieve = isMultiple(2, function () return false end)
+local sieve = newSieve(2, function (num) return num % 2 > 0 end)
 
 repeat
-  counter = counter + 1
+  number = number + 1
 
-  if not sieve(counter) then
-    table.insert(primes, counter)
-    sieve = isMultiple(counter, sieve)
+  if sieve(number) then
+    count = count + 1
+    prime = number
+    sieve = newSieve(number, sieve)
   end
-until #primes == 10001
+until count == 10001
 
-helper(104743, primes[#primes])
+helper(104743, prime)
