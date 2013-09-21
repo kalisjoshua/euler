@@ -15,4 +15,4 @@ $num = sprintf('%f', pow(2, 1000));
 $num = str_split(substr($num, 0, -7));
 $tot = array_sum($num);
 
-result("?", $tot);
+result(1366, $tot);
