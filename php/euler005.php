@@ -4,16 +4,16 @@ include "helper.php";
 
 function hasRemainder($num) {
    $x = 20;
-   while ($x > 0) {
+   while ($x > 10) {
       if ($num % $x != 0) return true;
       $x--;
    }
    return false;
 }
 
-$num = 20;
+$factor = $num = 20 * 19 * 18 * 17;
 do {
-   $num += 20;
+   $num += $factor;
 } while (hasRemainder($num));
 
 result(232792560, $num);
