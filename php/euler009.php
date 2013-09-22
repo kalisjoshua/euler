@@ -13,38 +13,23 @@
 
 include "helper.php";
 
-function isPyTrip($a, $b, $c)
+function c($a, $b)
 {
-	if (($a*$a)+($b*$b)==($c*$c)) {
-		return true;
-	} else {
-		return false;
+	return sqrt(pow($a, 2) + pow($b, 2));
+}
+
+$a = 3;
+$b = 4;
+$c = 1000;
+
+while ($a + $b + c($a, $b) != $c) {
+	$b++;
+	if ($b > 1000) {
+		$a++;
+		$b = $a + 1;
 	}
 }
 
-$f1 = 1; // starting factor a
-$f2 = 2; // starting factor b
-$p  = 3; // starting product
-$found = false;
-
-while ($found === false) {
-	if (isPyTrip($f1, $f2, $p)) {
-		if ($f1 + $f2 + $p == 1000) {
-			$found = $f1*$f2*$p;
-		}
-	}
-
-	// Increment the factors and product appropriately
-	$p++;
-	if ($p > 998) {
-		$f2++;
-		$p = $f2 + 1;
-	}
-	if ($f2 > 997) {
-		$f1++;
-		$f2 = $f1 + 1;
-		$p = $f2 + 1;
-	}
-}
+$found = $a * $b * c($a, $b);
 
 result(31875000, $found);
