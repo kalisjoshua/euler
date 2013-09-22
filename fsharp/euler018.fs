@@ -38,7 +38,7 @@ module euler018 =
 
     let pickDirection tree=
         match tree with
-        | Node(x,l,r) -> if (goDeep l) > (goDeep r) then l else r
+        | Node(x,l,r) -> if (Value l) > (Value r) then l else r
         | Leaf(x) -> failwith "cant do it"
 
     let pTree = parseTree tri 0 []
