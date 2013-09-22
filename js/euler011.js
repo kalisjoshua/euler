@@ -115,4 +115,4 @@ while (y < dimension) {
   }
 }
 
-helper(70600674, acc);
+helper(acc);

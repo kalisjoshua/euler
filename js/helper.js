@@ -1,20 +1,19 @@
 
-var start;
+var ANSWER = process.argv.pop(),
+    start;
 
-function mtime () {
-  return Date.now();
-}
+function result (attempt) {
+  var time = Date.now() - start;
 
-function result (ANSWER, attempt) {
-  if (ANSWER === attempt) {
+  if (+ANSWER === +attempt) {
     console.log('Success!');
-    console.log('Total time, ' + (mtime() - start) + ' miliseconds.');
+    console.log('Total time, ' + time + ' miliseconds.');
   } else {
     console.log('Keep trying.');
     console.log(attempt);
   }
 }
 
-start = mtime();
+start = Date.now();
 
 module.exports = result;

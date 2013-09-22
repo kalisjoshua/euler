@@ -26,4 +26,4 @@ while not isPal(product) do
   one = one - 1
 end
 
-helper(906609, product)
+helper(product)

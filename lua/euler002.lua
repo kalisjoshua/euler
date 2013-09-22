@@ -25,4 +25,4 @@ while fibB < limit do
   end
 end
 
-helper(4613732, sum)
+helper(sum)

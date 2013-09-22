@@ -19,4 +19,4 @@ function factors (num, i) {
 result = factors(600851475143)
   .pop();
 
-helper(6857, result);
+helper(result);

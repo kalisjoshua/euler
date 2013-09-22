@@ -26,4 +26,4 @@ result = Array.apply(null, Array(101))
     return Math.pow(b, 2) - a;
   });
 
-helper(25164150, result);
+helper(result);

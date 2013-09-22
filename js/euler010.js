@@ -31,4 +31,4 @@ result = numbers
     return isPrime ? acc + num : acc;
   }, 0);
 
-helper(142913828922, result);
+helper(result);

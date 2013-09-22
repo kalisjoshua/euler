@@ -25,4 +25,4 @@ end
 
 result = result[2] ^ 2 - result[1]
 
-helper(25164150, result);
+helper(result);

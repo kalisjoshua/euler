@@ -17,4 +17,4 @@ while counter < limit do
   counter = counter + 1
 end
 
-helper(233168, sum)
+helper(sum)

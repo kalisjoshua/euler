@@ -54,4 +54,4 @@ repeat
 until string.len(group) < len
 
 
-helper(40824, max)
+helper(max)

@@ -42,4 +42,4 @@ result = (
     return acc;
   }, [0, '']);
 
-helper(40824, result.shift());
+helper(result.shift());

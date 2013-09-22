@@ -29,4 +29,4 @@ repeat
   end
 until count == 10001
 
-helper(104743, prime)
+helper(prime)

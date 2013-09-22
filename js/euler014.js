@@ -39,4 +39,4 @@ while (--num) {
   }
 }
 
-helper(837799, result[0]);
+helper(result[0]);

@@ -14,4 +14,4 @@ result = Array.apply(0, Array(1000))
     return a + (!(i % 3) || !(i % 5) ? i : 0);
   }, 0);
 
-helper(233168, result);
+helper(result);

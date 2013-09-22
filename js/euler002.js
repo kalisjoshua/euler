@@ -18,4 +18,4 @@ while (fib[1] < 4000000) {
   result += fib[0] % 2 === 0 ? fib[0] : 0;
 }
 
-helper(4613732, result);
+helper(result);

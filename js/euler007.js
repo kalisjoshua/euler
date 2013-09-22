@@ -36,4 +36,4 @@ while (isPrime.cache.length < 10001) {
   isPrime(result);
 }
 
-helper(104743, result);
+helper(result);

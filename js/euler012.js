@@ -51,4 +51,4 @@ do {
   }
 } while (max < 500 && num++);
 
-helper(76576500, result);
+helper(result);

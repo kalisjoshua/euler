@@ -118,4 +118,4 @@ result = +numbers
   .toString()
   .slice(0, 10);
 
-helper(5350353422, result);
+helper(result);

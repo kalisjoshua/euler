@@ -34,4 +34,4 @@ end
 
 local result = a * b * c(a, b)
 
-helper(31875000, result)
+helper(result)

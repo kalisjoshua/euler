@@ -34,4 +34,4 @@ while not (
   counter = counter + 1
 end
 
-helper(232792560, counter)
+helper(counter)

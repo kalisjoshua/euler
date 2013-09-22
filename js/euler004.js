@@ -29,4 +29,4 @@ while (!isPal(result)) {
   one--;
 }
 
-helper(906609, result);
+helper(result);

@@ -20,4 +20,4 @@ function factors (num)
   end
 end
 
-helper(6857, factors(600851475143))
+helper(factors(600851475143))

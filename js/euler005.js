@@ -34,4 +34,4 @@ while (!(
   counter++;
 }
 
-helper(232792560, counter);
+helper(counter);
