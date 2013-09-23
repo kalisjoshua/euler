@@ -101,4 +101,4 @@ for ($i=1; $i <= 999; $i++) {
 }
 $chars_total += strlen("onethousand");
 
-result("?", $chars_total);
+result(21124, $chars_total);

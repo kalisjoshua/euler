@@ -27,4 +27,4 @@ for ($i=0; $i < $grid; $i++) {
 	$paths /= ($i + 1);
 }
 
-result("?", $paths);
+result(137846528820, $paths);
