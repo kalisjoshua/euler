@@ -29,14 +29,13 @@ bash:
 	@bash -f "bash/euler$(NUM).sh"
 
 clean:
-	@rm -f \
-		haskell/*.hi \
-		$(HASKELL_RUN)
+	@rm -f haskell/*.hi $(HASKELL_RUN)
 
 hs: clean
 	@printf $(MESSAGE) "Haskell" $(NUM)
-	ghc -o "$(HASKELL_RUN)" "haskell/euler$(NUM).hs"
-	./"$(HASKELL_RUN)"
+	@ghc -o "$(HASKELL_RUN)" "haskell/euler$(NUM).hs"
+	@$(HASKELL_RUN) $(ANS_$(NUM))
+	@make clean
 
 js:
 	@printf $(MESSAGE) "JavaScript" $(NUM)
