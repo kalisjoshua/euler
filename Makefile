@@ -31,6 +31,9 @@ bash:
 clean:
 	@rm -f haskell/*.hi $(HASKELL_RUN)
 
+clojure:
+	@cd clojure; lein run -m euler.euler$(NUM)
+
 hs: clean
 	@printf $(MESSAGE) "Haskell" $(NUM)
 	@ghc -o "$(HASKELL_RUN)" "haskell/euler$(NUM).hs"
@@ -56,4 +59,4 @@ py:
 %:
 	@: # phony rule to quiet warning about no rule for 'number' argument
 
-.PHONY: answer bash clean hs js lua php py %
+.PHONY: answer bash clean clojure hs js lua php py %
