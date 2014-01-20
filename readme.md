@@ -47,4 +47,5 @@ If you are adding a new language to the project please make sure that you check 
   * [Josh Headapohl](https://github.com/joshhead)
   * [Karl Herrick](https://github.com/kherrick)
   * [Joshua Kalis](https://github.com/kalisjoshua)
+  * [Michael Macauley](https://github.com/Orthak)
   * [Tyler Smith](https://github.com/tyane)
