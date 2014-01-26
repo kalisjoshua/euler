@@ -50,22 +50,29 @@ namespace ProjectEulerMain
                 "05886116467109405077541002256983155200055935729725" +
                 "71636269561882670428252483600823257530420752963450";
 
-            Int32[] thousandArray = thousandDigit.Select(d => int.Parse(d.ToString())).ToArray();
+            var thousandArray = thousandDigit.ToCharArray();
 
             var productsList = new BlockingCollection<int>();
 
             Parallel.For(0, thousandArray.Length - 4, i =>
             {
-                int product = thousandArray[i]
-                    * thousandArray[i + 1]
-                    * thousandArray[i + 2]
-                    * thousandArray[i + 3]
-                    * thousandArray[i + 4];
+                int product = CharToInt(thousandArray[i])
+                    * CharToInt(thousandArray[i + 1])
+                    * CharToInt(thousandArray[i + 2])
+                    * CharToInt(thousandArray[i + 3])
+                    * CharToInt(thousandArray[i + 4]);
 
                 productsList.Add(product);
             });
 
             return productsList.Max();
+        }
+
+        private static int CharToInt(char c)
+        {
+            // Subtracts the ASCII char value c from '0' which is the integer 48
+            // Integers 1 - 9 are characters 49 - 57
+            return (int)(c - '0');
         }
     }
 }
