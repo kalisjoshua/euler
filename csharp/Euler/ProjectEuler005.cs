@@ -18,9 +18,7 @@ namespace ProjectEulerMain
             int lcm = 1;
 
             for (int i = 0; i < nums.Length; i++)
-            {
                 lcm = LCM(lcm, nums[i]);
-            }
 
             stopwatch.Stop();
             Console.WriteLine("The smallest multiple that is divisable by 1 through 20 is {0}", lcm);
@@ -46,9 +44,7 @@ namespace ProjectEulerMain
             int gcd = 1;
 
             if(value1 == 0 || value2 == 0)
-            {
                 throw new ArgumentOutOfRangeException();
-            }
 
             if (a == b)
                 return a;
@@ -63,7 +59,6 @@ namespace ProjectEulerMain
                 gcd = b;
                 b = a % b;
                 a = gcd;
-
             }
 
             return gcd;

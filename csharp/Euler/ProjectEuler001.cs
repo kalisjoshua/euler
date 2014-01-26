@@ -20,9 +20,7 @@ namespace ProjectEulerMain
             Parallel.For(0, 1000, i =>
             {
                 if (i % 3 == 0 || i % 5 == 0)
-                {
                     multiples.Add(i);
-                }
             });
 
             int sumOfMultiples = multiples.Sum();

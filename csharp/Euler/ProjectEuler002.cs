@@ -25,7 +25,8 @@ namespace ProjectEulerMain
 
         private static int EvenFibionacciNumbers()
         {
-            int a = 0, b = 1;
+            int a = 0, 
+                b = 1;
 
             var evens = new List<int>();
 
@@ -34,7 +35,7 @@ namespace ProjectEulerMain
                 int temp = a;
                 a = b;
                 b = temp + b;
-
+                
                 if (b > 4000000)
                     break;
                 else if (b % 2 == 0)

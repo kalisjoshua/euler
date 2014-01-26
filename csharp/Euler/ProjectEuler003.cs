@@ -23,15 +23,14 @@ namespace ProjectEulerMain
 
         private static long MaxFactor()
         {
-            long number = 600851475143, k = 2;
+            long number = 600851475143, 
+                 k = 2;
 
             while (k * k <= number)
-            {
                 if (number % k == 0)
                     number /= k;
                 else
                     k++;
-            }
 
             return number;
         }

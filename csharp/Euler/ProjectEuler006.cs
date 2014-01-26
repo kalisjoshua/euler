@@ -17,7 +17,8 @@ namespace ProjectEulerMain
         {
             Stopwatch stopwatch = Stopwatch.StartNew();
 
-            long sumOfSquares = SumOfSquares(), squareOfSums = SquareOfSums();
+            long sumOfSquares = SumOfSquares(), 
+                 squareOfSums = SquareOfSums();
             
             stopwatch.Stop();
             Console.WriteLine("The difference between the sum of squares and the square of sums for the first 100 naural numbers is {0}.",

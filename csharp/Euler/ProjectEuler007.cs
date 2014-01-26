@@ -27,46 +27,40 @@ namespace ProjectEulerMain
 
         private static long FindThePrime()
         {
-            var primes = new BlockingCollection<long>();
+            var primes = new ConcurrentQueue<long>();
+            var theCollection = new BlockingCollection<long>(primes);
             var number = 1;
             var key = new object();
 
-            Parallel.For(1, 500000, (i, loopState) =>
+            Parallel.For(1, 110000, (i, loopState) =>
             {
                 lock (key)
                 {
                     if (IsPrime(number))
-                    {
-                        primes.Add(number);
-                    }
+                        theCollection.Add(number);
                     
                     number++;
                 }
 
-                if (primes.Count == 10001)
-                {
+                if (theCollection.Count == 10001)
                     loopState.Break();
-                }
             });
 
-            return primes.Max();
+            return theCollection.Max();
         }
 
         private static bool IsPrime(long number)
         {
             if ((number & 1) == 0)
-            {
                 if (number == 2)
                     return true;
                 else
                     return false;
-            }
 
             for (int i = 3; (i * i) <= number; i += 2)
-            {
                 if ((number % i) == 0)
                     return false;
-            }
+
             return number != 1;
         }
     }
