@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ProjectEulerMain
 {
@@ -13,8 +15,7 @@ namespace ProjectEulerMain
         /// <param name="args"></param>
         public static void Euler7(string[] args)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
+            Stopwatch stopwatch = Stopwatch.StartNew();
 
             Console.WriteLine("The 10,001st prime number is {0}.", 
                 FindThePrime());
@@ -24,25 +25,34 @@ namespace ProjectEulerMain
                 stopwatch.ElapsedMilliseconds);
         }
 
-        static long FindThePrime()
+        private static long FindThePrime()
         {
-            List<long> primes = new List<long>();
-            int count = 1;
-            int i = 1;
+            var primes = new BlockingCollection<long>();
+            var number = 1;
+            var key = new object();
 
-            while(count <= 10001)
+            Parallel.For(1, 500000, (i, loopState) =>
             {
-                if (IsPrime(i))
+                lock (key)
                 {
-                    primes.Add(i);
-                    count++;
+                    if (IsPrime(number))
+                    {
+                        primes.Add(number);
+                    }
+                    
+                    number++;
                 }
-                i++;
-            }
+
+                if (primes.Count == 10001)
+                {
+                    loopState.Break();
+                }
+            });
+
             return primes.Max();
         }
 
-        static bool IsPrime(int number)
+        private static bool IsPrime(long number)
         {
             if ((number & 1) == 0)
             {

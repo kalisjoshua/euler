@@ -1,16 +1,21 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ProjectEulerMain
 {
     class ProjectEuler008
     {
+        /// <summary>
+        /// This program finds the largest product of 5 numbers in the given sequence.
+        /// </summary>
+        /// <param name="args"></param>
         public static void Euler8(string[] args)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
+            Stopwatch stopwatch = Stopwatch.StartNew();
 
             Console.WriteLine("The largest product of 5 consecutive digits from the given number is {0}", 
                 LargestProduct());
@@ -47,9 +52,9 @@ namespace ProjectEulerMain
 
             Int32[] thousandArray = thousandDigit.Select(d => int.Parse(d.ToString())).ToArray();
 
-            List<int> productsList = new List<int>();
+            var productsList = new BlockingCollection<int>();
 
-            for (int i = 0; i < thousandArray.Length - 4; i++)
+            Parallel.For(0, thousandArray.Length - 4, i =>
             {
                 int product = thousandArray[i]
                     * thousandArray[i + 1]
@@ -58,7 +63,7 @@ namespace ProjectEulerMain
                     * thousandArray[i + 4];
 
                 productsList.Add(product);
-            }
+            });
 
             return productsList.Max();
         }

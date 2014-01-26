@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ProjectEulerMain
 {
@@ -13,18 +14,16 @@ namespace ProjectEulerMain
         /// <param name="args"></param>
         public static void Euler1(string[] args)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            var multiples = new BlockingCollection<int>();
 
-            List<int> multiples = new List<int>();
-
-            for (int i = 1; i < 1000; i++)
+            Parallel.For(0, 1000, i =>
             {
                 if (i % 3 == 0 || i % 5 == 0)
                 {
                     multiples.Add(i);
                 }
-            }
+            });
 
             int sumOfMultiples = multiples.Sum();
 

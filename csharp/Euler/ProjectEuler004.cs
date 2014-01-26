@@ -12,8 +12,7 @@ namespace ProjectEulerMain
         /// <param name="args"></param>
         public static void Euler4(string[] args)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
+            Stopwatch stopwatch = Stopwatch.StartNew();
 
             var result = Enumerable.Range(100, 900).
                 SelectMany(x => Enumerable.Range(x, 1000 - x).
@@ -27,7 +26,7 @@ namespace ProjectEulerMain
                 stopwatch.ElapsedMilliseconds);
         }
 
-        static bool IsPallindrome(int number)
+        private static bool IsPallindrome(int number)
         {
             string s = number.ToString();
             return s.Reverse().SequenceEqual(s);

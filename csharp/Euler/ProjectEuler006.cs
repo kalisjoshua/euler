@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ProjectEulerMain
 {
@@ -13,11 +15,9 @@ namespace ProjectEulerMain
         /// <param name="args"></param>
         public static void Euler6(string[] args)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
+            Stopwatch stopwatch = Stopwatch.StartNew();
 
-            long sumOfSquares = SumOfSquares(100);
-            long squareOfSums = SquareOfSums(100);
+            long sumOfSquares = SumOfSquares(), squareOfSums = SquareOfSums();
             
             stopwatch.Stop();
             Console.WriteLine("The difference between the sum of squares and the square of sums for the first 100 naural numbers is {0}.",
@@ -26,28 +26,28 @@ namespace ProjectEulerMain
                 stopwatch.ElapsedMilliseconds);
         }
 
-        static long SumOfSquares(int n)
+        private static long SumOfSquares()
         {
-            List<long> listOfSquares = new List<long>();
+            var listOfSquares = new BlockingCollection<long>();
             int j;
 
-            for (int i = 1; i <= n; i++)
+            Parallel.For(1, 101, i =>
             {
                 j = i * i;
                 listOfSquares.Add(j);
-            }
+            });
 
             return listOfSquares.Sum();
         }
 
-        static long SquareOfSums(int n)
+        private static long SquareOfSums()
         {
-            List<long> listOfSums = new List<long>();
+            var listOfSums = new BlockingCollection<long>();
 
-            for (int i = 1; i <= n; i++)
+            Parallel.For(1, 101, i =>
             {
                 listOfSums.Add(i);
-            }
+            });
 
             return listOfSums.Sum() * listOfSums.Sum();
         }

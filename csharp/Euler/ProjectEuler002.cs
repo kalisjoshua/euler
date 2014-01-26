@@ -13,8 +13,7 @@ namespace ProjectEulerMain
         /// <param name="args"></param>
         public static void Euler2(string[] args)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
+            Stopwatch stopwatch = Stopwatch.StartNew();
 
             Console.WriteLine("The sum of all even numbers in a fibonacci sequence (whose values do not exceed 4 Million) is {0}",
                 EvenFibionacciNumbers());
@@ -24,14 +23,13 @@ namespace ProjectEulerMain
                 stopwatch.ElapsedMilliseconds);
         }
 
-        static int EvenFibionacciNumbers()
+        private static int EvenFibionacciNumbers()
         {
-            int a = 0;
-            int b = 1;
+            int a = 0, b = 1;
 
-            List<int> evens = new List<int>();
+            var evens = new List<int>();
 
-            for (int i = 0; i < i + 1; i++)
+            while(true)
             {
                 int temp = a;
                 a = b;

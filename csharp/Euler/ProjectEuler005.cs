@@ -12,8 +12,7 @@ namespace ProjectEulerMain
         /// <param name="args"></param>
         public static void Euler5(string[] args)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
+            Stopwatch stopwatch = Stopwatch.StartNew();
 
             int[] nums = Enumerable.Range(1, 20).ToArray();
             int lcm = 1;
