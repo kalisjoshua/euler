@@ -10,7 +10,7 @@ namespace ProjectEulerMain
     class ProjectEuler007
     {
         /// <summary>
-        /// Find the 10,001st prime number
+        /// Find the 10,001st prime number.
         /// </summary>
         /// <param name="args"></param>
         public static void Euler7(string[] args)
@@ -25,43 +25,52 @@ namespace ProjectEulerMain
                 stopwatch.ElapsedMilliseconds);
         }
 
+        // Start with a close bounding value, to keep the 
+        // sieve from taking longer than needed.
+        private const long limit = int.MaxValue / 16384;
+        private static PrimeGenerator generator = new PrimeGenerator(limit);
+
         private static long FindThePrime()
         {
-            var primes = new ConcurrentQueue<long>();
-            var theCollection = new BlockingCollection<long>(primes);
-            var number = 1;
-            var key = new object();
-
-            Parallel.For(1, 110000, (i, loopState) =>
-            {
-                lock (key)
-                {
-                    if (IsPrime(number))
-                        theCollection.Add(number);
-                    
-                    number++;
-                }
-
-                if (theCollection.Count == 10001)
-                    loopState.Break();
-            });
-
-            return theCollection.Max();
+            return generator.GenNextPrime().Skip(10000).Take(1).First();
         }
 
-        private static bool IsPrime(long number)
+        public class PrimeGenerator
         {
-            if ((number & 1) == 0)
-                if (number == 2)
-                    return true;
-                else
-                    return false;
+            private readonly long _limit;
+            private readonly bool[] _isPrime;
 
-            for (int i = 3; (i * i) <= number; i += 2)
-                if ((number % i) == 0)
-                    return false;
+            public PrimeGenerator(long limit)
+            {
+                _limit = limit;
+                _isPrime = new bool[_limit];
 
-            return number != 1;
+                // Initialize the sieve to true.
+                for (var i = 0L; i < _limit; i++)
+                {
+                    _isPrime[i] = true;
+                }
+            }
+
+            public IEnumerable<long> GenNextPrime()
+            {
+                for (var candidate = 2L; candidate < _limit; candidate++)
+                {
+                    // Every true canditate is prime, because every multiple
+                    // of the previous candidate is marked false.
+                    if (!_isPrime[candidate])
+                        continue;
+
+                    yield return candidate;
+
+                    // This section is parallellizable, but with a small sieve the performance
+                    // with parallelization is less than the performance with a single thread.
+                    for (var multiple = candidate * candidate; multiple < _limit; multiple += candidate)
+                    {
+                        _isPrime[multiple] = false;
+                    }
+                }
+            }
         }
     }
 }
