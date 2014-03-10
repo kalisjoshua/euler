@@ -7,10 +7,10 @@
 var helper = require('./helper.js'),
     result;
 
-function factors (num, i) {
+function factors(num, i) {
   i = 2;
 
-  while (num % i !== 0 && i++);
+  while (num % i !== 0) {i++; }
 
   return [i]
     .concat((num / i > 1) ? factors(num / i) : []);

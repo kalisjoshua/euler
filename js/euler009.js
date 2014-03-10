@@ -18,8 +18,8 @@ var helper = require('./helper.js'),
     lim = 1000,
     result;
 
-function c (a, b) {
-  return Math.sqrt(a*a + b*b);
+function c(a, b) {
+  return Math.sqrt(a * a + b * b);
 }
 
 while (a + b + c(a, b) !== lim) {

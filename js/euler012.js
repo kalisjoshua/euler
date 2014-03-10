@@ -29,7 +29,7 @@ var helper = require('./helper.js'),
     num = 1,
     result = 0;
 
-function divisorsCount (num) {
+function divisorsCount(num) {
   var limit = ~~Math.sqrt(num),
       result = 0;
 

@@ -16,7 +16,7 @@ var helper = require('./helper.js'),
     x = 0,
     y = 0;
 
-function collect (a, b, c, d) {
+function collect(a, b, c, d) {
   var result;
 
   result = a * b * c * d;
@@ -28,48 +28,48 @@ function collect (a, b, c, d) {
   return result;
 }
 
-function down (x, y) {
+function down(x, y) {
   if (y + 3 < dimension) {
 
     return collect(
-      grid[y+0][x],
-      grid[y+1][x],
-      grid[y+2][x],
-      grid[y+3][x]);
+      grid[y + 0][x],
+      grid[y + 1][x],
+      grid[y + 2][x],
+      grid[y + 3][x]);
   }
 }
 
-function forward (x, y) {
+function forward(x, y) {
   if (x + 3 < dimension) {
 
     return collect(
-      grid[y][x+0],
-      grid[y][x+1],
-      grid[y][x+2],
-      grid[y][x+3]);
+      grid[y][x + 0],
+      grid[y][x + 1],
+      grid[y][x + 2],
+      grid[y][x + 3]);
   }
 }
 
 
-function ramp (x, y) {
+function ramp(x, y) {
   if (x - 3 >= 0 && y + 3 < dimension) {
 
     return collect(
-      grid[y+0][x-0],
-      grid[y+1][x-1],
-      grid[y+2][x-2],
-      grid[y+3][x-3]);
+      grid[y + 0][x - 0],
+      grid[y + 1][x - 1],
+      grid[y + 2][x - 2],
+      grid[y + 3][x - 3]);
   }
 }
 
-function slide (x, y) {
+function slide(x, y) {
   if (x + 3 < dimension && y + 3 < dimension) {
 
     return collect(
-      grid[y+0][x+0],
-      grid[y+1][x+1],
-      grid[y+2][x+2],
-      grid[y+3][x+3]);
+      grid[y + 0][x + 0],
+      grid[y + 1][x + 1],
+      grid[y + 2][x + 2],
+      grid[y + 3][x + 3]);
   }
 }
 

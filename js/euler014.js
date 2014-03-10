@@ -22,13 +22,13 @@
 var helper = require('./helper.js'),
 
     num = 1000000,
-    result = [0,0],
+    result = [0, 0],
     len;
 
-function collatz (num, count) {
-  return num === 1 ? count : (num % 2 === 0)
-    ? collatz(num / 2, count + 1)
-    : collatz(3 * num + 1, count + 1);
+function collatz(num, count) {
+  return num === 1 ? count : (num % 2 === 0) ?
+    collatz(num / 2, count + 1) :
+    collatz(3 * num + 1, count + 1);
 }
 
 while (--num) {

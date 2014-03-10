@@ -42,7 +42,7 @@ hs: clean
 
 js:
 	@printf $(MESSAGE) "JavaScript" $(NUM)
-	@node "js/euler$(NUM).js" $(ANS_$(NUM))
+	@time -p node "js/euler$(NUM).js" $(ANS_$(NUM))
 
 lua:
 	@printf $(MESSAGE) "Lua" $(NUM)
@@ -50,11 +50,11 @@ lua:
 
 php:
 	@printf $(MESSAGE) "PHP" $(NUM)
-	@php -f "php/euler$(NUM).php"
+	@time -p php -f "php/euler$(NUM).php"
 
 py:
 	@printf $(MESSAGE) "Python" $(NUM)
-	@python "python/euler$(NUM).py"
+	@time -p python "python/euler$(NUM).py"
 
 %:
 	@: # phony rule to quiet warning about no rule for 'number' argument

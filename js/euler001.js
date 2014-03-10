@@ -9,9 +9,9 @@ var helper = require('./helper.js'),
     result;
 
 // Better answer
-result = Array.apply(0, Array(1000))
+result = Array.apply(0, new Array(1000))
   .reduce(function (a, _, i) {
-    return a + (!(i % 3) || !(i % 5) ? i : 0);
+    return a + (!(i % 3 && i % 5) ? i : 0);
   }, 0);
 
 helper(result);
