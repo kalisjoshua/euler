@@ -13,13 +13,11 @@ var LIMIT = 1000,
 // acc[0] - carries from previous doubling
 // acc[1] - accumulates the resulting number
 function doublingReduce(acc, num) {
-  // console.log('reduce', num, num * 2);
   num = num * 2 + acc[0];
 
   acc[0] = +(num >= 10);
   acc[1] = ('' + num % 10) + acc[1];
 
-  // console.log('reduce', num, acc);
   return acc;
 }
 
