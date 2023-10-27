@@ -12,13 +12,13 @@ var helper = require('./helper.js'),
     level,
     result = one * two;
 
-function isPal (num) {
+function isPal(num) {
   num = num.toString();
 
   return num === num
-    .split("")
+    .split('')
     .reverse()
-    .join("");
+    .join('');
 }
 
 while (!isPal(result)) {

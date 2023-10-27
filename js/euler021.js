@@ -18,10 +18,10 @@ var cache = {},
     result = [],
     temp;
 
-function amicable (a) {
+function amicable(a) {
   var b;
 
-  function d (num) {
+  function d(num) {
     return sum(divisors(num));
   }
 
@@ -30,12 +30,14 @@ function amicable (a) {
   return b !== a && d(b) === a ? [a, b] : false;
 }
 
-function divisors (num) {
+function divisors(num) {
   var i = 2,
       list = [];
 
-  function push (n) {
-    !~list.indexOf(n) && list.push(n)
+  function push(n) {
+    if (!~list.indexOf(n)) {
+      list.push(n);
+    }
   }
 
   push(1);
@@ -55,7 +57,8 @@ function divisors (num) {
     });
 }
 
-function sum (list) {
+function sum(list) {
+  /*jshint evil:true*/
   return eval(list.join('+'));
 }
 

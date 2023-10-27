@@ -7,9 +7,8 @@
 var helper = require('./helper.js'),
 
     m,
-    numbers = Array(2000000),
+    numbers = new Array(2000000),
     p = 2,
-    seed,
     result,
 
     MAX = numbers.length;
@@ -23,7 +22,7 @@ while (p < MAX) {
     numbers[m++ * p] = false;
   }
 
-  while (p < MAX && false == numbers[++p]);
+  while (p < MAX && false === numbers[++p]) {}
 }
 
 result = numbers

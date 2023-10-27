@@ -9,7 +9,7 @@ var helper = require('./helper.js'),
 
     result;
 
-function isPrime (num) {
+function isPrime(num) {
   if (!!~isPrime.cache.indexOf(num)) {
     return true;
   }

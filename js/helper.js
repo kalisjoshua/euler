@@ -1,19 +1,10 @@
 
-var ANSWER = process.argv.pop(),
-    start;
-
-function result (attempt) {
-  var time = Date.now() - start;
-
-  if (+ANSWER === +attempt) {
+module.exports = function (attempt) {
+  if (+process.argv.pop() === +attempt) {
     console.log('Success!');
-    console.log('Total time, ' + time + ' miliseconds.');
+    console.log('Total time');
   } else {
     console.log('Keep trying.');
     console.log(attempt);
   }
 }
-
-start = Date.now();
-
-module.exports = result;
